@@ -14,32 +14,28 @@ import android.widget.TextView;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class NextLevel extends AppCompatActivity {
+public class NextLevelTwo extends AppCompatActivity {
     TextView tv_p1,tv_p2;
 
-    ImageView iv_11,iv_12,iv_13,iv_14,iv_21,iv_22,iv_23,iv_24,iv_31,iv_32,iv_33,iv_34,iv_031,iv_032,iv_033,iv_034;
+    ImageView iv_11,iv_12,iv_13,iv_14,iv_21,iv_22,iv_23,iv_24,iv_31,iv_32,iv_33,iv_34;
 
     //array for this image;
 
-    Integer[] cardsarray={101,102,103,104,105,106,201,202,203,204,205,206,301,302,303,304};
+    Integer[] cardsarray={101,102,103,104,105,106,201,202,203,204,205,206};
 
     //actual image;
 
     int image101,image102,image103,image104,image105,image106,
-            image201,image202,image203,image204,image205,image206,image301,image302,image303,image304;
+            image201,image202,image203,image204,image205,image206;
     int firstCard,secondCard;
     int clickedfirst,clickedsecond;
     int cardNumbers=1;
     int turn=1;
     int playerPoints=10,cpupoints=10;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_next_level);
-
-
-
+        setContentView(R.layout.activity_next_level_two);
         tv_p1=(TextView)findViewById(R.id.tv_p1);
         tv_p2=(TextView)findViewById(R.id.tv_p2);
 
@@ -55,16 +51,11 @@ public class NextLevel extends AppCompatActivity {
         iv_23=(ImageView)findViewById(R.id.iv_23);
         iv_24=(ImageView)findViewById(R.id.iv_24);
 
-        iv_31= findViewById(R.id.iv_31);
-        iv_32= findViewById(R.id.iv_32);
-        iv_33= findViewById(R.id.iv_33);
-        iv_34= findViewById(R.id.iv_34);
+        iv_31=(ImageView)findViewById(R.id.iv_31);
+        iv_32=(ImageView)findViewById(R.id.iv_32);
 
-        iv_031 = findViewById(R.id.iv_031);
-        iv_032 = findViewById(R.id.iv_032);
-        iv_033 = findViewById(R.id.iv_033);
-        iv_034 = findViewById(R.id.iv_034);
-
+        iv_33=(ImageView)findViewById(R.id.iv_33);
+        iv_34=(ImageView)findViewById(R.id.iv_34);
 
 
 
@@ -80,10 +71,6 @@ public class NextLevel extends AppCompatActivity {
         iv_32.setTag("9");
         iv_33.setTag("10");
         iv_34.setTag("11");
-        iv_031.setTag("12");
-        iv_032.setTag("13");
-        iv_033.setTag("14");
-        iv_034.setTag("15");
 
 
         //load the cards image;
@@ -252,39 +239,6 @@ public class NextLevel extends AppCompatActivity {
             }
         });
 
-        iv_031.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theCard=Integer.parseInt((String)view.getTag());
-
-                dostuf(iv_031,theCard);
-            }
-        });
-        iv_032.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theCard=Integer.parseInt((String)view.getTag());
-
-                dostuf(iv_032,theCard);
-            }
-        });
-        iv_033.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theCard=Integer.parseInt((String)view.getTag());
-
-                dostuf(iv_033,theCard);
-            }
-        });
-        iv_034.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theCard=Integer.parseInt((String)view.getTag());
-
-                dostuf(iv_034,theCard);
-            }
-        });
-
 
     }
 
@@ -334,19 +288,9 @@ public class NextLevel extends AppCompatActivity {
             iv.setImageResource(image205);
         }
 
-        else if (cardsarray[card]==301){
+        else if (cardsarray[card]==206){
             iv.setImageResource(image206);
         }
-        else if (cardsarray[card]==302){
-            iv.setImageResource(image206);
-        }
-        else if (cardsarray[card]==303){
-            iv.setImageResource(image206);
-        }
-        else if (cardsarray[card]==304){
-            iv.setImageResource(image206);
-        }
-
 
 
         //check which image is selected and save it to temporayry variable;
@@ -385,10 +329,6 @@ public class NextLevel extends AppCompatActivity {
             iv_32.setEnabled(false);
             iv_33.setEnabled(false);
             iv_34.setEnabled(false);
-            iv_031.setEnabled(false);
-            iv_032.setEnabled(false);
-            iv_033.setEnabled(false);
-            iv_034.setEnabled(false);
 
             android.os.Handler handler=new android.os.Handler();
 
@@ -457,19 +397,6 @@ public class NextLevel extends AppCompatActivity {
             else if (clickedfirst==11){
                 iv_34.setVisibility(View.INVISIBLE);
             }
-            else if (clickedfirst==12){
-                iv_031.setVisibility(View.INVISIBLE);
-            }
-            else if (clickedfirst==13){
-                iv_032.setVisibility(View.INVISIBLE);
-            }
-            else if (clickedfirst==14){
-                iv_033.setVisibility(View.INVISIBLE);
-            }
-            else if (clickedfirst==15){
-                iv_034.setVisibility(View.INVISIBLE);
-            }
-
 
 
 
@@ -520,23 +447,14 @@ public class NextLevel extends AppCompatActivity {
             else if (clickedsecond==11){
                 iv_34.setVisibility(View.INVISIBLE);
             }
-            else if (clickedsecond==12){
-                iv_031.setVisibility(View.INVISIBLE);
-            }else if (clickedsecond==13){
-                iv_032.setVisibility(View.INVISIBLE);
-            }else if (clickedsecond==14){
-                iv_033.setVisibility(View.INVISIBLE);
-            }else if (clickedsecond==15){
-                iv_034.setVisibility(View.INVISIBLE);
-            }
 
             //add points to the correct players.
 
             if (turn == 1){
-                playerPoints=playerPoints+00;
+                playerPoints=playerPoints+500000;
                 tv_p1.setText("p1:"+playerPoints);
             }else  if (turn == 2){
-                cpupoints=cpupoints+00;
+                cpupoints=cpupoints+500000;
                 tv_p2.setText("p2:"+cpupoints);
             }
 
@@ -558,10 +476,6 @@ public class NextLevel extends AppCompatActivity {
             iv_32.setImageResource(R.drawable.back_image);
             iv_33.setImageResource(R.drawable.back_image);
             iv_34.setImageResource(R.drawable.back_image);
-            iv_031.setImageResource(R.drawable.back_image);
-            iv_032.setImageResource(R.drawable.back_image);
-            iv_033.setImageResource(R.drawable.back_image);
-            iv_034.setImageResource(R.drawable.back_image);
 
             //change the player turn.
 
@@ -588,10 +502,6 @@ public class NextLevel extends AppCompatActivity {
         iv_32.setEnabled(true);
         iv_33.setEnabled(true);
         iv_34.setEnabled(true);
-        iv_031.setEnabled(true);
-        iv_032.setEnabled(true);
-        iv_033.setEnabled(true);
-        iv_034.setEnabled(true);
 
 
         //check ind if the game is over.
@@ -612,14 +522,10 @@ public class NextLevel extends AppCompatActivity {
                 iv_31.getVisibility()==View.INVISIBLE &&
                 iv_32.getVisibility()==View.INVISIBLE &&
                 iv_33.getVisibility()==View.INVISIBLE &&
-                iv_34.getVisibility()==View.INVISIBLE &&
-                iv_031.getVisibility() == View.INVISIBLE &&
-                iv_032.getVisibility() == View.INVISIBLE &&
-                iv_033.getVisibility() == View.INVISIBLE &&
-                iv_034.getVisibility() == View.INVISIBLE
+                iv_34.getVisibility()==View.INVISIBLE
         ){
 
-            AlertDialog.Builder builder=new AlertDialog.Builder(NextLevel.this);
+            AlertDialog.Builder builder=new AlertDialog.Builder(NextLevelTwo.this);
 
             builder.setTitle("Game Score:");
             builder.setMessage("Mithun Game Over\nP1: "+playerPoints+"\nP2:"+cpupoints);
@@ -629,7 +535,7 @@ public class NextLevel extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    startActivity(new Intent(getApplicationContext(),NextLevelTwo.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
 
                 }
@@ -671,18 +577,7 @@ public class NextLevel extends AppCompatActivity {
         image204=R.drawable.d204;
         image205=R.drawable.e205;
         image206=R.drawable.f206;
-        image301 = R.drawable.e105;
-        image302 = R.drawable.f106;
-        image303 = R.drawable.e105;
-        image304 = R.drawable.e105;
 
     }
 
-    public void tryNextLevel2(View view) {
-
-        Intent intent = new Intent(this, NextLevelTwo.class);
-        startActivity(intent);
-
-
-    }
 }
